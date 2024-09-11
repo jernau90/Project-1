@@ -33,7 +33,7 @@ body {
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
-        height: 50%;
+        height: 40%;
         }
 
 #form-container h2 {
