@@ -110,7 +110,6 @@
 
                     // Attach click event listener to the new dot
                     newDot.on('click', onDotClick);
-                    console.log("New dot created at", currentLatLng); // Debug message
 
                     currentLatLng = null; // Reset currentLatLng
                 }
