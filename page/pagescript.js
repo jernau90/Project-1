@@ -24,6 +24,7 @@
             }
             contextMenu.style.left = `${e.originalEvent.pageX - 200}px`;
             contextMenu.style.top = `${e.originalEvent.pageY - 100}px`;
+            document.getElementById('dot-form').style.display = 'none';
         }
 
         // Map click handler: Hides the context menu
@@ -49,6 +50,8 @@
             // Populate form with selected dot's name and type
             document.getElementById('dot-name').value = selectedDot.options.dotName || '';
             document.getElementById('dot-type').value = selectedDot.options.dotType || '';
+
+            document.getElementById('dot-form').style.display = 'block';
         }
 
         function enterConnectionMode() {
@@ -83,6 +86,7 @@
                     selectedDot = newDot;
                     selectedDot.setStyle({ color: 'green' });
                    document.getElementById('connection-button').style.display = 'block';
+                   document.getElementById('dot-form').style.display = 'block';
 
                     // Attach click event listener to the new dot
                     newDot.on('click', onDotClick);
