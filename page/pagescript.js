@@ -16,6 +16,9 @@
             currentLatLng = e.latlng;
             const contextMenu = document.getElementById('context-menu');
             contextMenu.style.display = 'block';
+            conectionModeFlag = true;
+            document.getElementById('connection-indicator').style.display = 'none'
+            document.getElementById('connection-button').style.display = 'none'
             contextMenu.style.left = `${e.originalEvent.pageX - 200}px`;
             contextMenu.style.top = `${e.originalEvent.pageY - 100}px`;
         }
