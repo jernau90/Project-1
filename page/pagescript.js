@@ -40,7 +40,7 @@
             // Highlight the clicked dot
             selectedDot = dot;
             selectedDot.setStyle({ color: 'green' });
-            document.getElementById('connection-button').style.display = 'block';    
+            //document.getElementById('connection-button').style.display = 'block';    
         }
 
         // Context menu click handler: Creates a new dot on the map
