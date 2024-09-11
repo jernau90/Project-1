@@ -69,8 +69,6 @@
                 opacity: 0.7,
                 start: dot1.id,
                 end: dot2.id,
-                startName: dot1.dotName,
-                endName: dot2.dotName,
                 }).addTo(connections);
         }
 
