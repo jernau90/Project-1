@@ -118,3 +118,17 @@
         map.on('click', onMapClick);  // Regular left-click event
         document.getElementById('connection-button').addEventListener('click', enterConnectionMode);
         document.getElementById('create-dot').addEventListener('click', onContextMenuOptionClick);  // Context menu option
+
+
+document.getElementById('delete-dot').addEventListener('click', function() {
+    if (selectedDot) {
+        map.removeLayer(selectedDot);  // Remove the selected dot from the map
+        selectedDot = null;  // Clear the selectedDot variable
+
+        // Hide the form, delete button, and connection button
+        document.getElementById('dot-form').style.display = 'none';
+        document.getElementById('dot-name').value = ''; // Clear dot name
+        document.getElementById('dot-type').value = ''; // Clear dot type
+        document.getElementById('connection-button').style.display = 'none'; // Hide the connection button
+    }
+});
