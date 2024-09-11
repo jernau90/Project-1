@@ -11,6 +11,7 @@
         let selectedDot = null;
         let conectionModeFlag = false
         let dotCounter = 0; // Counter for dot IDs
+        let connections = L.layerGroup().addTo(map);
 
         // Right-click handler: Shows the context menu
         function onMapRightClick(e) {
