@@ -61,18 +61,35 @@
                 document.getElementById('connection-indicator').style.display = 'block'
         }           
 
-        function createConnection(latlng1, latlng2) {
-            L.polyline([latlng1, latlng2], {
+        function createConnection(dot1, dot2) {
+            const polyline = L.polyline([dot1.getLatLng(), dot2.getLatLng()], {
                 color: 'blue',
                 weight: 3,
-                opacity: 0.7
-            }).addTo(map);
+                opacity: 0.7,
+                start: dot1.id,
+                end: dot2.id,
+                startName: dot1.dotName,
+                EndName: dot1.dotName,
+                }).addTo(connections);
+        }
+
+        function removeConnections(dot) {
+                connections.eachLayer(function(layer) {
+                if (layer instanceof L.Polyline) {
+                    const dotIds = layer.dots;
+                    if (dotIds.start === dot.id || dotIds.end === dot.id) {
+                connections.removeLayer(layer); // Remove the connection
+                    }
+                    };
+                })
         }
 
         // Context menu click handler: Creates a new dot on the map
         function onContextMenuOptionClick(e) {
             if (e.target.id === 'create-dot') {
                 if (currentLatLng) {
+                 dotCounter++; // Increment the dot counter
+                    const dotId = dotCounter; // Assign a new dot ID
                     const newDot = L.circleMarker(currentLatLng, {
                         radius: 8,
                         fillColor: 'red',
@@ -81,7 +98,8 @@
                         opacity: 1,
                         fillOpacity: 0.8,
                         dotName: '',
-                        dotType: ''
+                        dotType: '',
+                        id: dotId
                     }).addTo(map); // Add directly to the map
 
                 // Automatically select the new dot
@@ -124,6 +142,8 @@ document.getElementById('delete-dot').addEventListener('click', function() {
     if (selectedDot) {
         map.removeLayer(selectedDot);  // Remove the selected dot from the map
         selectedDot = null;  // Clear the selectedDot variable
+        removeConnections(selectedDot);
+        selectedDot = null; // Clear the selectedDot variable
 
         // Hide the form, delete button, and connection button
         document.getElementById('dot-form').style.display = 'none';
