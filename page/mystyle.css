@@ -95,8 +95,4 @@ body {
         height: 15px;
         background-color: blue;
         border-radius: 50%;
-        position: absolute;
-        top: 50%;
-        right: -30px;
-        transform: translateY(-50%);
         }
