@@ -44,7 +44,11 @@
             // Highlight the clicked dot
             selectedDot = dot;
             selectedDot.setStyle({ color: 'green' });
-            document.getElementById('connection-button').style.display = 'block';}    
+            document.getElementById('connection-button').style.display = 'block';}
+
+            // Populate form with selected dot's name and type
+            document.getElementById('dot-name').value = selectedDot.options.dotName || '';
+            document.getElementById('dot-type').value = selectedDot.options.dotType || '';
         }
 
         function enterConnectionMode() {
