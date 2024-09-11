@@ -19,6 +19,9 @@
             conectionModeFlag = false;
             document.getElementById('connection-indicator').style.display = 'none'
             document.getElementById('connection-button').style.display = 'none'
+            if (selectedDot) {
+                selectedDot.setStyle({ color: 'red' });
+            }
             contextMenu.style.left = `${e.originalEvent.pageX - 200}px`;
             contextMenu.style.top = `${e.originalEvent.pageY - 100}px`;
         }
