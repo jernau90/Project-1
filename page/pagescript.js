@@ -22,21 +22,25 @@
         // Map click handler: Hides the context menu
         function onMapClick() {
             document.getElementById('context-menu').style.display = 'none';
+            document.getElementById('connection-button').style.display = 'none';
+             // Reset previously selected dot color
+            if (selectedDot) {
+                selectedDot.setStyle({ color: 'red' });
+            }
         }
 
         // Dot click handler: Handles selection of a dot and changes its color
         function onDotClick(e) {
             console.log("Dot clicked!", e);
             const dot = e.target;
-
             // Reset previously selected dot color
             if (selectedDot) {
                 selectedDot.setStyle({ color: 'red' });
             }
-
             // Highlight the clicked dot
             selectedDot = dot;
             selectedDot.setStyle({ color: 'green' });
+            document.getElementById('connection-button').style.display = 'block';    
         }
 
         // Context menu click handler: Creates a new dot on the map
