@@ -1,4 +1,4 @@
-// Initialize the map centered over the UK
+        // Initialize the map centered over the UK
         const map = L.map('map').setView([54.5, -3.5], 6);
 
         // Add OpenStreetMap tiles to the map
