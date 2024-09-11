@@ -9,6 +9,7 @@
 
         let currentLatLng = null;
         let selectedDot = null;
+        let conectionModeFlag = false
 
         // Right-click handler: Shows the context menu
         function onMapRightClick(e) {
@@ -38,6 +39,11 @@
             document.getElementById('connection-button').style.display = 'block';    
         }
 
+        function enterConnectionMode() {
+                conectionModeFlag = true;
+        }
+                
+
         // Context menu click handler: Creates a new dot on the map
         function onContextMenuOptionClick(e) {
             if (e.target.id === 'create-dot') {
@@ -64,4 +70,5 @@
         // Attach map and context menu events
         map.on('contextmenu', onMapRightClick);  // Right-click event
         map.on('click', onMapClick);  // Regular left-click event
+        document.getElementById('connection-button').addEventListener('click', enterConnectionMode);
         document.getElementById('create-dot').addEventListener('click', onContextMenuOptionClick);  // Context menu option
