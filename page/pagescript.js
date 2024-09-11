@@ -70,8 +70,15 @@
                         color: 'red',
                         weight: 1,
                         opacity: 1,
-                        fillOpacity: 0.8
+                        fillOpacity: 0.8,
+                        dotName: '',
+                        dotType: ''
                     }).addTo(map); // Add directly to the map
+
+                // Automatically select the new dot
+                    selectedDot = newDot;
+                    selectedDot.setStyle({ color: 'green' });
+                   document.getElementById('connection-button').style.display = 'block';
 
                     // Attach click event listener to the new dot
                     newDot.on('click', onDotClick);
