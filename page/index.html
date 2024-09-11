@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="mystyle.css">
+<link href="mystyle.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script src="pagescript.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 
-<body>
-
-<p>Click the button to get the test for other file.</p>
-<button onclick="myFunction()">Try it</button>
-
- <p id="demo"></p>
+<div id="container">
+        <div id="map-container">
+            <div id="map"></div>
+            <div id="context-menu">
+                <ul>
+                    <li id="create-dot">Create New Dot</li>
+                </ul>
+            </div>
+        </div>
+        <div id="form-container">
+            <h2>Current Selection</h2>
+            <button id="connection-button">Create Connection</button>
+            <div id="connection-indicator"></div>
+        </div>
+    </div>
 
 </body>
  
