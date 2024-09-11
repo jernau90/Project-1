@@ -1,4 +1,3 @@
-src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js
 
 // Right-click handler: Shows the context menu
         function onMapRightClick(e) {
