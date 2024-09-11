@@ -83,6 +83,19 @@
             document.getElementById('context-menu').style.display = 'none';
         }
 
+        // Event handler for updating dot properties from form input
+        document.getElementById('dot-name').addEventListener('input', function() {
+                if (selectedDot) {
+                selectedDot.options.dotName = this.value;
+            }
+        });
+
+        document.getElementById('dot-type').addEventListener('input', function() {
+                if (selectedDot) {
+                selectedDot.options.dotType = this.value;
+            }
+        });
+
         // Attach map and context menu events
         map.on('contextmenu', onMapRightClick);  // Right-click event
         map.on('click', onMapClick);  // Regular left-click event
