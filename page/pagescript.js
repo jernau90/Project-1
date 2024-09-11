@@ -41,8 +41,8 @@
 
         function enterConnectionMode() {
                 conectionModeFlag = true;
-        }
-                
+                document.getElementById('connection-indicator').style.display = 'block'
+        }           
 
         // Context menu click handler: Creates a new dot on the map
         function onContextMenuOptionClick(e) {
