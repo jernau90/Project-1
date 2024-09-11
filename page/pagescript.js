@@ -39,7 +39,7 @@
         // Dot click handler: Handles selection of a dot and changes its color
         function onDotClick(e) {
             const dot = e.target;
-            if(conectionModeFlag){createConnection(selectedDot.getLatLng(), dot.getLatLng())}else{
+            if(conectionModeFlag){createConnection(selectedDot, dot)}else{
                     
            
             // Reset previously selected dot color
@@ -64,12 +64,18 @@
         }           
 
         function createConnection(dot1, dot2) {
-            const polyline = L.polyline([dot1.getLatLng(), dot2.getLatLng()], {
-                color: 'blue',
-                weight: 3,
-                opacity: 0.7,
-                }).addTo(connections);
-        }
+    const polyline = L.polyline([dot1.getLatLng(), dot2.getLatLng()], {
+        color: 'blue',
+        weight: 3,
+        opacity: 0.7
+    }).addTo(connections);
+
+    // Store dot IDs in the polyline's options
+    polyline.dots = {
+        start: dot1.id,
+        end: dot2.id
+    };
+}
 
         function removeConnections(dot) {
                 connections.eachLayer(function(layer) {
