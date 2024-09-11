@@ -27,8 +27,10 @@
 
         // Dot click handler: Handles selection of a dot and changes its color
         function onDotClick(e) {
-            console.log("Dot clicked!", e);
             const dot = e.target;
+            if(conectionModeFlag){createConnection(selectedDot.getLatLng(), dot.getLatLng())}else{
+                    
+           
             // Reset previously selected dot color
             if (selectedDot) {
                 selectedDot.setStyle({ color: 'red' });
@@ -36,13 +38,21 @@
             // Highlight the clicked dot
             selectedDot = dot;
             selectedDot.setStyle({ color: 'green' });
-            document.getElementById('connection-button').style.display = 'block';    
+            document.getElementById('connection-button').style.display = 'block';}    
         }
 
         function enterConnectionMode() {
                 conectionModeFlag = true;
                 document.getElementById('connection-indicator').style.display = 'block'
         }           
+
+        function createConnection(latlng1, latlng2) {
+            L.polyline([latlng1, latlng2], {
+                color: 'blue',
+                weight: 3,
+                opacity: 0.7
+            }).addTo(map);
+        }
 
         // Context menu click handler: Creates a new dot on the map
         function onContextMenuOptionClick(e) {
