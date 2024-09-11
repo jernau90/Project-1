@@ -67,8 +67,6 @@
                 color: 'blue',
                 weight: 3,
                 opacity: 0.7,
-                start: dot1.id,
-                end: dot2.id,
                 }).addTo(connections);
         }
 
