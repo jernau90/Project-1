@@ -24,7 +24,9 @@
             }
             contextMenu.style.left = `${e.originalEvent.pageX - 200}px`;
             contextMenu.style.top = `${e.originalEvent.pageY - 100}px`;
-            document.getElementById('dot-form').style.display = 'none';
+            document.getElementById('dot-form').style.display = 'none'
+            document.getElementById('dot-name').value = ''; // Clear dot name
+            document.getElementById('dot-type').value = ''; // Clear dot type;
         }
 
         // Map click handler: Hides the context menu
