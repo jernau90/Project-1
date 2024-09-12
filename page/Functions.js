@@ -96,7 +96,7 @@ const polyline = L.polyline([dot1.getLatLng(), dot2.getLatLng()], {
   Linetype: '',
   start: dot1.options.id,
   end: dot2.options.id,
-  distance: newdistance
+  distance: 3
 }).addTo(connections);
 conectionModeFlag = false;
 document.getElementById('connection-indicator').style.display = 'none'
