@@ -99,6 +99,9 @@
         end: dot2.options.id
     }).addTo(connections);
 
+        conectionModeFlag = false;
+        document.getElementById('connection-indicator').style.display = 'none'
+
         polyline.on('click', onLineClick);
 }
 
