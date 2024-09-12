@@ -71,7 +71,7 @@
         // Dot click handler: Handles selection of a dot and changes its color
         function onLineClick(e) {
             if (selectedLine) {
-                selectedLine.setStyle({ colour: 'blue' });
+                selectedLine.setStyle({ color: 'blue' });
             } 
             // Reset previously selected dot color
             if (selectedDot) {
