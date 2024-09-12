@@ -56,7 +56,6 @@
             document.getElementById('dot-name').value = selectedDot.options.dotName || '';
             document.getElementById('dot-type').value = selectedDot.options.dotType || '';
             document.getElementById('dot id').value = selectedDot.options.id|| '';
-
             document.getElementById('dot-form').style.display = 'block';
         }
 
@@ -77,6 +76,7 @@
         start: dot1.id,
         end: dot2.id
     };
+        polyline.on('click', onLineClick);
 }
 
         function removeConnections(dot) {
