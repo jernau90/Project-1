@@ -20,8 +20,6 @@
             const contextMenu = document.getElementById('context-menu');
             contextMenu.style.display = 'block';
             conectionModeFlag = false;
-            document.getElementById('connection-indicator').style.display = 'none'
-            document.getElementById('connection-button').style.display = 'none'
             if (selectedDot) {
                 selectedDot.setStyle({ color: 'red' });
             }
@@ -47,7 +45,8 @@
         // Dot click handler: Handles selection of a dot and changes its color
         function onDotClick(e) {
             const dot = e.target;
-            if(conectionModeFlag){createConnection(selectedDot, dot)}else{
+            if(conectionModeFlag){createConnection(selectedDot, dot)                   
+            }else{
             if (selectedLine) {
                 selectedLine.setStyle({ color: 'blue' });
             }        
@@ -59,7 +58,7 @@
             // Highlight the clicked dot
             selectedDot = dot;
             selectedDot.setStyle({ color: 'green' });
-            document.getElementById('connection-button').style.display = 'block';}
+            
 
             // Populate form with selected dot's name and type
             document.getElementById('dot-name').value = selectedDot.options.dotName || '';
@@ -111,6 +110,12 @@
 
         conectionModeFlag = false;
         document.getElementById('connection-indicator').style.display = 'none'
+        selectedDot.setStyle({ color: 'red' });
+        selectedDot = null;
+        selectedLine = polyline;
+        selectedLine.setStyle({ color: 'green' }); 
+        document.getElementById('line-form').style.display = 'block';
+        document.getElementById('dot-form').style.display = 'none';
 
         polyline.on('click', onLineClick);
 }
@@ -201,6 +206,5 @@ document.getElementById('delete-dot').addEventListener('click', function() {
         document.getElementById('dot-form').style.display = 'none';
         document.getElementById('dot-name').value = ''; // Clear dot name
         document.getElementById('dot-type').value = ''; // Clear dot type
-        document.getElementById('connection-button').style.display = 'none'; // Hide the connection button
     }
 });
