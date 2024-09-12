@@ -86,7 +86,8 @@ function enterConnectionMode() {
 
 //create a connection between two dots
 function createConnection(dot1, dot2) {
-const newdistance = dot1.getLatLng().distanceTo(dot2.getLatLng());
+//const newdistance = dot1.getLatLng().distanceTo(dot2.getLatLng());
+const newdistance = calculateRoadDistance(latLng1, latLng2)
 const polyline = L.polyline([dot1.getLatLng(), dot2.getLatLng()], {
 // Update the connection form with the calculated distance (converted to kilometers)
   color: 'blue',
@@ -152,4 +153,19 @@ function onContextMenuOptionClick(e) {
     } 
   }
   document.getElementById('context-menu').style.display = 'none';
+}
+
+// Function to calculate road distance using OpenRouteService
+function calculateRoadDistance(latlng1, latlng2) {
+    const apiKey = '5b3ce3597851110001cf6248aa66421c31a54497aa7c03e8a9e8f207';
+    const url = `https://api.openrouteservice.org/v2/directions/driving-car?api_key=${apiKey}&start=${latlng1.lng},${latlng1.lat}&end=${latlng2.lng},${latlng2.lat}`;
+
+    // Make the API request
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            const distance = data.routes[0].summary.distance; // Distance in meters
+            document.getElementById('distance-box').value = (distance / 1000).toFixed(2) + ' km (road)';
+        })
+        .catch(error => console.error('Error fetching road distance:', error));
 }
