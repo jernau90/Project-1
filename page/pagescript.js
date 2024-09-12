@@ -62,11 +62,8 @@
         // Dot click handler: Handles selection of a dot and changes its color
         function onLineClick(e) {
             const line = e.target;
-                
             selectedline = line;
-            selectedline.setStyle({ color: 'green' });
-            document.getElementById('connection-button').style.display = 'block';}
-            
+            selectedline.setStyle({ color: 'green' });            
 
             // Populate form with selected dot's name and type
             document.getElementById('dot-name').value = selectedline.options.dotName || '';
