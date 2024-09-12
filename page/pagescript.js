@@ -105,7 +105,7 @@
         function removeConnections(dot) {
                 connections.eachLayer(function(layer) {
                 if (layer instanceof L.Polyline) {
-                    if (layer.start === dot.id || layer.end === dot.id) {
+                    if (layer.options.start === dot.options.id || layer.options.end === dot.options.id) {
                 connections.removeLayer(layer); // Remove the connection
                     }
                     };
