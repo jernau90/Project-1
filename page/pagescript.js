@@ -208,3 +208,15 @@ document.getElementById('delete-dot').addEventListener('click', function() {
         document.getElementById('dot-type').value = ''; // Clear dot type
     }
 });
+
+document.getElementById('delete-line').addEventListener('click', function() {
+    if (selectedLine) {
+        map.removeLayer(selectedLine);  // Remove the selected dot from the map
+        selectedLine = null;  // Clear the selectedDot variable
+
+        // Hide the form, delete button, and connection button
+        document.getElementById('line-form').style.display = 'none';
+        document.getElementById('line-name').value = ''; // Clear dot name
+        document.getElementById('line-type').value = ''; // Clear dot type
+    }
+});
