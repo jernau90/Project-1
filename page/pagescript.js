@@ -76,8 +76,8 @@
             document.getElementById('line-form').style.display = 'block';
             document.getElementById('dot-form').style.display = 'none';
 
-            // Populate form with selected dot's name and type
-            document.getElementById('line-name').value = selectedline.options.lineName || '';
+            // Populate form with selected lines's name and type
+            document.getElementById('line-name').value = "test" || '';
             document.getElementById('line-type').value = selectedline.options.lineType || '';
             document.getElementById('start-id').value = selectedline.dots.start|| '';
             document.getElementById('end-id').value = selectedline.dots.end|| '';}
