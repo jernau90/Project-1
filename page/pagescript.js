@@ -49,8 +49,9 @@
             const dot = e.target;
             if(conectionModeFlag){createConnection(selectedDot, dot)}else{
             if (selectedLine) {
-                selectedDot.setStyle({ blue: 'red' });
+                selectedDot.setStyle({ color: 'blue' });
             }        
+            selectedLine = null;
             // Reset previously selected dot color
             if (selectedDot) {
                 selectedDot.setStyle({ color: 'red' });
@@ -71,8 +72,9 @@
         // Dot click handler: Handles selection of a dot and changes its color
         function onLineClick(e) {
             if (selectedLine) {
-                selectedDot.setStyle({ blue: 'red' });
-            }        
+                selectedLine.setStyle({ colour: 'blue' });
+            } 
+            selectedDot = null;
             // Reset previously selected dot color
             if (selectedDot) {
                 selectedDot.setStyle({ color: 'red' });
