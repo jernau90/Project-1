@@ -165,7 +165,7 @@ function calculateRoadDistance(latlng1, latlng2) {
         .then(response => response.json())
         .then(data => {
             const distance = data.routes[0].summary.distance; // Distance in meters
-            document.getElementById('distance-box').value = (distance / 1000).toFixed(2) + ' km (road)';
+            document.getElementById('distance').value = distance ;
         })
         .catch(error => console.error('Error fetching road distance:', error));
 }
