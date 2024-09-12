@@ -95,8 +95,8 @@
         opacity: 0.7,
         Linename: '',
         Linetype: '',
-        start: dot1.Id,
-        end: dot2.Id
+        start: dot1.options.Id,
+        end: dot2.options.Id
     }).addTo(connections);
 
         polyline.on('click', onLineClick);
