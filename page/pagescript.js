@@ -29,6 +29,7 @@
             document.getElementById('dot-form').style.display = 'none'
             document.getElementById('dot-name').value = ''; // Clear dot name
             document.getElementById('dot-type').value = ''; // Clear dot type;
+            document.getElementById('dot id').value = ''; // Clear dot ID;
         }
 
         // Map click handler: Hides the context menu
@@ -54,6 +55,7 @@
             // Populate form with selected dot's name and type
             document.getElementById('dot-name').value = selectedDot.options.dotName || '';
             document.getElementById('dot-type').value = selectedDot.options.dotType || '';
+            document.getElementById('dot id').value = selectedDot.options.id|| '';
 
             document.getElementById('dot-form').style.display = 'block';
         }
