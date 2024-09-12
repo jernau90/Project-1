@@ -1,79 +1,77 @@
-let polygon = null;
-let vertices = [];  // Store polygon vertices
-let markers = [];   // Store the markers for dragging vertices
+/ Add this to your existing code
 let polygonMode = false;
-let polygonButton = document.getElementById("polygon-button");
+let polygonPoints = []; // Array to store clicked points for the polygon
+let polygonLayer = null; // Reference to the polygon layer
 
-// Toggle polygon mode
-polygonButton.addEventListener("click", togglePolygonMode);
-
+// Function to handle polygon button click
 function togglePolygonMode() {
+    const polygonButton = document.getElementById('polygon-button');
+
     if (!polygonMode) {
+        // Enter polygon mode
         polygonMode = true;
-        polygonButton.innerText = "Finish Polygon";
+        polygonButton.innerText = 'Finish'; // Change button text to "Finish"
+        polygonPoints = []; // Reset the points for the polygon
+        map.on('click', onMapPolygonClick); // Enable map click to add points
     } else {
-        finishPolygon();
+        // Finish the polygon
+        if (polygonPoints.length > 2) { // A valid polygon needs at least 3 points
+            drawPolygon();
+        }
+        polygonMode = false;
+        polygonButton.innerText = 'Polygon'; // Change button text back to "Polygon"
+        map.off('click', onMapPolygonClick); // Disable map click for polygon
     }
 }
 
-// Handle map clicks to add polygon vertices
-map.on("click", function(e) {
-    if (!polygonMode) return;
+// Function to handle map clicks for polygon points
+function onMapPolygonClick(e) {
+    // Add clicked point to the array
+    polygonPoints.push([e.latlng.lat, e.latlng.lng]);
 
-    const latlng = e.latlng;
-    vertices.push(latlng);
-
-    // Draw or update the polygon
-    if (polygon) {
-        polygon.setLatLngs(vertices);
-    } else {
-        polygon = L.polygon(vertices).addTo(map);
-    }
-});
-
-// Finish polygon creation
-function finishPolygon() {
-    polygonMode = false;
-    polygonButton.innerText = "Polygon Mode";
-
-    if (!polygon) return;  // No polygon to finish
-
-    // Add draggable markers at each vertex
-    addVertexMarkers();
+    // Optionally, show markers for clicked points (temporary visual aid)
+    L.circleMarker(e.latlng, {
+        radius: 4,
+        fillColor: 'orange',
+        color: 'orange',
+        weight: 1,
+        opacity: 1,
+        fillOpacity: 0.8
+    }).addTo(map);
 }
 
-// Add draggable markers for each polygon vertex
-function addVertexMarkers() {
-    markers.forEach(marker => map.removeLayer(marker));  // Remove any existing markers
-    markers = [];  // Clear the markers array
+// Function to draw the polygon
+function drawPolygon() {
+    if (polygonLayer) {
+        map.removeLayer(polygonLayer); // Remove the previous polygon if any
+    }
 
-    // Add a draggable marker for each vertex
-    vertices.forEach((latlng, index) => {
-        const marker = L.marker(latlng, { draggable: true }).addTo(map);
-        markers.push(marker);
+    // Draw the polygon using the collected points
+    polygonLayer = L.polygon(polygonPoints, {
+        color: 'green',
+        fillColor: '#3388ff',
+        fillOpacity: 0.5
+    }).addTo(map);
 
-        // On drag, update the polygon shape
-        marker.on("drag", function(e) {
-            const newLatLng = e.target.getLatLng();
-            vertices[index] = newLatLng;  // Update the vertex position
-            polygon.setLatLngs(vertices);  // Update the polygon shape
-        });
-
-        // On drag end, update the final coordinates
-        marker.on("dragend", function() {
-            console.log("Vertex dragged to:", vertices[index]);
-        });
-    });
+    // Reset the points array after the polygon is drawn
+    polygonPoints = [];
 }
 
-// Optional: Add a clear button to reset the polygon
-document.getElementById('clear-button').addEventListener('click', function() {
-    if (polygon) {
-        map.removeLayer(polygon);  // Remove the polygon
-        markers.forEach(marker => map.removeLayer(marker));  // Remove the vertex markers
-        vertices = [];  // Clear vertices
-        markers = [];   // Clear markers
-        polygon = null; // Reset the polygon
-    }
-});
+// Add the polygon button to the UI
+const polygonButton = document.createElement('button');
+polygonButton.id = 'polygon-button';
+polygonButton.innerText = 'Polygon';
+polygonButton.style.position = 'absolute';
+polygonButton.style.bottom = '20px';
+polygonButton.style.left = '20px';
+polygonButton.style.padding = '10px';
+polygonButton.style.backgroundColor = '#4CAF50';
+polygonButton.style.color = 'white';
+polygonButton.style.border = 'none';
+polygonButton.style.cursor = 'pointer';
 
+// Add the button click event handler
+polygonButton.addEventListener('click', togglePolygonMode);
+
+// Add the button to the map container or body
+document.body.appendChild(polygonButton);
