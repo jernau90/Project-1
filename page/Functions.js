@@ -73,8 +73,9 @@ function onLineClick(e) {
   document.getElementById('line-name').value = selectedLine.options.lineName || '';
   document.getElementById('line-type').value = selectedLine.options.lineType || '';
   document.getElementById('start-id').value = selectedLine.options.start|| '';
-  document.getElementById('end-id').value = selectedLine.options.end|| '';}
-
+  document.getElementById('end-id').value = selectedLine.options.end|| '';
+  document.getElementById('distance').value = (selectedLine.options.distance / 1000).toFixed(2) + ' km|| '';
+}
 
 //enter connection mode
 function enterConnectionMode() {
@@ -85,14 +86,17 @@ function enterConnectionMode() {
 
 //create a connection between two dots
 function createConnection(dot1, dot2) {
+const newdistance = dot1.getLatLng().distanceTo(dot2.getLatLng());
 const polyline = L.polyline([dot1.getLatLng(), dot2.getLatLng()], {
+// Update the connection form with the calculated distance (converted to kilometers)
   color: 'blue',
   weight: 3,
   opacity: 0.7,
   Linename: '',
   Linetype: '',
   start: dot1.options.id,
-  end: dot2.options.id
+  end: dot2.options.id,
+  distance: newdistance
 }).addTo(connections);
 conectionModeFlag = false;
 document.getElementById('connection-indicator').style.display = 'none'
@@ -103,6 +107,8 @@ selectedLine.setStyle({ color: 'green' });
 document.getElementById('line-form').style.display = 'block';
 document.getElementById('dot-form').style.display = 'none';
 polyline.on('click', onLineClick);
+// Update the connection form with the calculated distance (converted to kilometers)
+document.getElementById('distance').value = (selectedLine.options.distance / 1000).toFixed(2) + ' km';
 }
 
 
