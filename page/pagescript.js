@@ -81,8 +81,8 @@
             // Populate form with selected lines's name and type
             document.getElementById('line-name').value = selectedLine.options.lineName || '';
             document.getElementById('line-type').value = selectedLine.options.lineType || '';
-            document.getElementById('start-id').value = selectedLine.dots.start|| '';
-            document.getElementById('end-id').value = selectedLine.dots.end|| '';}
+            document.getElementById('start-id').value = selectedLine.options.start|| '';
+            document.getElementById('end-id').value = selectedLine.options.end|| '';}
         
 
         function enterConnectionMode() {
@@ -96,22 +96,18 @@
         weight: 3,
         opacity: 0.7,
         Linename: '',
-        Linetype: ''
+        Linetype: '',
+        start: 'test' ,
+        end: ''
     }).addTo(connections);
 
-    // Store dot IDs in the polyline's options
-    polyline.dots = {
-        start: dot1.id,
-        end: dot2.id
-    };
         polyline.on('click', onLineClick);
 }
 
         function removeConnections(dot) {
                 connections.eachLayer(function(layer) {
                 if (layer instanceof L.Polyline) {
-                    const dotIds = layer.dots;
-                    if (dotIds.start === dot.id || dotIds.end === dot.id) {
+                    if (layer.start === dot.id || layer.end === dot.id) {
                 connections.removeLayer(layer); // Remove the connection
                     }
                     };
