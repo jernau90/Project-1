@@ -76,8 +76,6 @@
             document.getElementById('line-form').style.display = 'block';
             document.getElementById('dot-form').style.display = 'none';
 
-            selectedLine.dots.start = "test"
-
             // Populate form with selected lines's name and type
             document.getElementById('line-name').value = selectedLine.options.lineName || '';
             document.getElementById('line-type').value = selectedLine.options.lineType || '';
@@ -97,7 +95,7 @@
         opacity: 0.7,
         Linename: '',
         Linetype: '',
-        start: 'test' ,
+        start: "test",
         end: ''
     }).addTo(connections);
 
