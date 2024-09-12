@@ -70,10 +70,10 @@
             document.getElementById('dot-form').style.display = 'none';
 
             // Populate form with selected dot's name and type
-            document.getElementById('dot-name').value = selectedline.options.dotName || '';
-            document.getElementById('dot-type').value = selectedline.options.dotType || '';
-            document.getElementById('start-id').value = selectedline.dotIds.start|| '';
-            document.getElementById('start-id').value = selectedline.dotIds.end|| '';}
+            document.getElementById('line-name').value = selectedline.options.dotName || '';
+            document.getElementById('line-type').value = selectedline.options.dotType || '';
+            document.getElementById('start-id').value = selectedline.dots.start|| '';
+            document.getElementById('end-id').value = selectedline.dots.end|| '';}
         
 
         function enterConnectionMode() {
