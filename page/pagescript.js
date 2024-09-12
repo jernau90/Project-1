@@ -49,7 +49,7 @@
             const dot = e.target;
             if(conectionModeFlag){createConnection(selectedDot, dot)}else{
             if (selectedLine) {
-                selectedDot.setStyle({ color: 'blue' });
+                selectedLine.setStyle({ color: 'blue' });
             }        
             selectedLine = null;
             // Reset previously selected dot color
@@ -74,12 +74,11 @@
             if (selectedLine) {
                 selectedLine.setStyle({ colour: 'blue' });
             } 
-            selectedDot = null;
             // Reset previously selected dot color
             if (selectedDot) {
                 selectedDot.setStyle({ color: 'red' });
             }
-        
+           selectedDot = null;
             const line = e.target;
             selectedLine = line;
             selectedLine.setStyle({ color: 'green' }); 
