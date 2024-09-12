@@ -86,8 +86,8 @@ function enterConnectionMode() {
 
 //create a connection between two dots
 function createConnection(dot1, dot2) {
-//const newdistance = dot1.getLatLng().distanceTo(dot2.getLatLng());
-const newdistance = calculateRoadDistance(dot1.getLatLng(), dot2.getLatLng())
+const newdistance = dot1.getLatLng().distanceTo(dot2.getLatLng());
+//const newdistance = calculateRoadDistance(dot1.getLatLng(), dot2.getLatLng())
 const polyline = L.polyline([dot1.getLatLng(), dot2.getLatLng()], {
 // Update the connection form with the calculated distance (converted to kilometers)
   color: 'blue',
