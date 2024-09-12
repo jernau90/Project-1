@@ -143,10 +143,9 @@
 
 document.getElementById('delete-dot').addEventListener('click', function() {
     if (selectedDot) {
+        removeConnections(selectedDot);
         map.removeLayer(selectedDot);  // Remove the selected dot from the map
         selectedDot = null;  // Clear the selectedDot variable
-        removeConnections(selectedDot);
-        selectedDot = null; // Clear the selectedDot variable
 
         // Hide the form, delete button, and connection button
         document.getElementById('dot-form').style.display = 'none';
