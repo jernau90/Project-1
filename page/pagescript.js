@@ -27,6 +27,9 @@
             contextMenu.style.left = `${e.originalEvent.pageX - 200}px`;
             contextMenu.style.top = `${e.originalEvent.pageY - 100}px`;
             document.getElementById('dot-form').style.display = 'none'
+            document.getElementById('dot-form').style.display = 'none'
+            document.getElementById('line-name').value = ''; // Clear line name
+            document.getElementById('line-type').value = ''; // Clear line type;
             document.getElementById('dot-name').value = ''; // Clear dot name
             document.getElementById('dot-type').value = ''; // Clear dot type;
             document.getElementById('dot id').value = ''; // Clear dot ID;
