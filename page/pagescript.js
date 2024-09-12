@@ -95,7 +95,7 @@
         opacity: 0.7,
         Linename: '',
         Linetype: '',
-        start: dot1.id,
+        start: 'test',
         end: dot2.id
     }).addTo(connections);
 
