@@ -161,6 +161,19 @@
             }
         });
 
+        // Event handler for updating dot properties from form input
+        document.getElementById('line-name').addEventListener('input', function() {
+                if (selectedLine) {
+                selectedDot.options.lineName = this.value;
+            }
+        });
+
+        document.getElementById('line-type').addEventListener('input', function() {
+                if (selectedLine) {
+                selectedDot.options.lineType = this.value;
+            }
+        });
+
         // Attach map and context menu events
         map.on('contextmenu', onMapRightClick);  // Right-click event
         map.on('click', onMapClick);  // Regular left-click event
