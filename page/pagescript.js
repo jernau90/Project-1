@@ -70,8 +70,8 @@
         // Dot click handler: Handles selection of a dot and changes its color
         function onLineClick(e) {
             const line = e.target;
-            selectedline = line;
-            selectedline.setStyle({ color: 'green' }); 
+            selectedLine = line;
+            selectedLine.setStyle({ color: 'green' }); 
 
             document.getElementById('line-form').style.display = 'block';
             document.getElementById('dot-form').style.display = 'none';
@@ -80,9 +80,9 @@
 
             // Populate form with selected lines's name and type
             document.getElementById('line-name').value = selectedLine.options.lineName || '';
-            document.getElementById('line-type').value = selectedline.options.lineType || '';
-            document.getElementById('start-id').value = selectedline.dots.start|| '';
-            document.getElementById('end-id').value = selectedline.dots.end|| '';}
+            document.getElementById('line-type').value = selectedLine.options.lineType || '';
+            document.getElementById('start-id').value = selectedLine.dots.start|| '';
+            document.getElementById('end-id').value = selectedLine.dots.end|| '';}
         
 
         function enterConnectionMode() {
