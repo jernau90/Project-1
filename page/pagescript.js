@@ -9,6 +9,7 @@
 
         let currentLatLng = null;
         let selectedDot = null;
+        let selectedLine = null;
         let conectionModeFlag = false
         let dotCounter = 0; // Counter for dot IDs
         let connections = L.layerGroup().addTo(map);
