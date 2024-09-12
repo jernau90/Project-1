@@ -66,7 +66,7 @@
             document.getElementById('dot id').value = selectedDot.options.id|| '';
             document.getElementById('dot-form').style.display = 'block';
             document.getElementById('line-form').style.display = 'none';
-        }
+        }}
 
         // Dot click handler: Handles selection of a dot and changes its color
         function onLineClick(e) {
