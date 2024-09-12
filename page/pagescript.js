@@ -91,7 +91,7 @@
     const polyline = L.polyline([dot1.getLatLng(), dot2.getLatLng()], {
         color: 'blue',
         weight: 3,
-        opacity: 0.7.
+        opacity: 0.7,
         Linename: '',
         Linetype: ''
     }).addTo(connections);
