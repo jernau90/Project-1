@@ -74,7 +74,7 @@ function onLineClick(e) {
   document.getElementById('line-type').value = selectedLine.options.lineType || '';
   document.getElementById('start-id').value = selectedLine.options.start|| '';
   document.getElementById('end-id').value = selectedLine.options.end|| '';
-  document.getElementById('distance').value = (selectedLine.options.distance)
+  document.getElementById('distance').value = (selectedLine.options.distance/ 1000).toFixed(2) + ' km (road)';
 }
 
 //enter connection mode
@@ -109,7 +109,7 @@ document.getElementById('line-form').style.display = 'block';
 document.getElementById('dot-form').style.display = 'none';
 polyline.on('click', onLineClick);
 // Update the connection form with the calculated distance (converted to kilometers)
-document.getElementById('distance').value = selectedLine.options.distance
+document.getElementById('distance').value = (selectedLine.options.distance/ 1000).toFixed(2) + ' km (road)';
 }
 
 
