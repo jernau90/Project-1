@@ -63,14 +63,16 @@
         function onLineClick(e) {
             const line = e.target;
             selectedline = line;
-            selectedline.setStyle({ color: 'green' });            
+            selectedline.setStyle({ color: 'green' }); 
+
+            document.getElementById('line-form').style.display = 'block';
+            document.getElementById('dot-form').style.display = 'none';
 
             // Populate form with selected dot's name and type
             document.getElementById('dot-name').value = selectedline.options.dotName || '';
             document.getElementById('dot-type').value = selectedline.options.dotType || '';
             document.getElementById('start-id').value = selectedline.dotIds.start|| '';
-            document.getElementById('start-id').value = selectedline.dotIds.end|| '';
-            document.getElementById('line-form').style.display = 'block';}
+            document.getElementById('start-id').value = selectedline.dotIds.end|| '';}
         
 
         function enterConnectionMode() {
