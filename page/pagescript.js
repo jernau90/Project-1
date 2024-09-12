@@ -24,6 +24,9 @@
             if (selectedDot) {
                 selectedDot.setStyle({ color: 'red' });
             }
+            if (selectedLine) {
+                selectedLine.setStyle({ color: 'blue' });
+            }
             contextMenu.style.left = `${e.originalEvent.pageX - 200}px`;
             contextMenu.style.top = `${e.originalEvent.pageY - 100}px`;
             document.getElementById('dot-form').style.display = 'none'
