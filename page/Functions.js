@@ -74,7 +74,7 @@ function onLineClick(e) {
   document.getElementById('line-type').value = selectedLine.options.lineType || '';
   document.getElementById('start-id').value = selectedLine.options.start|| '';
   document.getElementById('end-id').value = selectedLine.options.end|| '';
-  document.getElementById('distance').value = (selectedLine.options.distance / 1000).toFixed(2) + ' km|| '';
+  document.getElementById('distance').value = (selectedLine.options.distance / 1000).toFixed(2) + ' km';
 }
 
 //enter connection mode
