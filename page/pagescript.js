@@ -59,6 +59,23 @@
             document.getElementById('dot-form').style.display = 'block';
         }
 
+        // Dot click handler: Handles selection of a dot and changes its color
+        function onLineClick(e) {
+            const line = e.target;
+                
+            selectedline = line;
+            selectedline.setStyle({ color: 'green' });
+            document.getElementById('connection-button').style.display = 'block';}
+            
+
+            // Populate form with selected dot's name and type
+            document.getElementById('dot-name').value = selectedline.options.dotName || '';
+            document.getElementById('dot-type').value = selectedline.options.dotType || '';
+            document.getElementById('start-id').value = selectedline.dotIds.start|| '';
+            document.getElementById('start-id').value = selectedline.dotIds.end|| '';
+            document.getElementById('line-form').style.display = 'block';}
+        
+
         function enterConnectionMode() {
                 conectionModeFlag = true;
                 document.getElementById('connection-indicator').style.display = 'block'
