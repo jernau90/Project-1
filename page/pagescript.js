@@ -96,7 +96,7 @@
         Linename: '',
         Linetype: '',
         start: 'test',
-        end: dot2.id
+        end: dot2.options.id
     }).addTo(connections);
 
         polyline.on('click', onLineClick);
