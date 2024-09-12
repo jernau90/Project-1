@@ -91,7 +91,9 @@
     const polyline = L.polyline([dot1.getLatLng(), dot2.getLatLng()], {
         color: 'blue',
         weight: 3,
-        opacity: 0.7
+        opacity: 0.7.
+        Linename: '',
+        Linetype: ''
     }).addTo(connections);
 
     // Store dot IDs in the polyline's options
@@ -158,6 +160,18 @@
                 selectedDot.options.dotType = this.value;
             }
         });
+
+        document.getElementById('line-type').addEventListener('input', function() {
+                if (selectedLine) {
+                selectedLine.options.lineType = this.value;
+            }
+        });
+
+        document.getElementById('line-name').addEventListener('input', function() {
+                if (selectedLine) {
+                selectedLine.options.lineName = this.value;
+            }
+        })
 
         // Attach map and context menu events
         map.on('contextmenu', onMapRightClick);  // Right-click event
