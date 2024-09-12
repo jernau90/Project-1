@@ -161,18 +161,6 @@
             }
         });
 
-        document.getElementById('line-type').addEventListener('input', function() {
-                if (selectedLine) {
-                selectedLine.options.lineType = this.value;
-            }
-        });
-
-        document.getElementById('line-name').addEventListener('input', function() {
-                if (selectedLine) {
-                selectedLine.options.lineName = this.value;
-            }
-        });
-
         // Attach map and context menu events
         map.on('contextmenu', onMapRightClick);  // Right-click event
         map.on('click', onMapClick);  // Regular left-click event
