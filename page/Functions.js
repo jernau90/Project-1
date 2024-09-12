@@ -109,7 +109,7 @@ document.getElementById('line-form').style.display = 'block';
 document.getElementById('dot-form').style.display = 'none';
 polyline.on('click', onLineClick);
 // Update the connection form with the calculated distance (converted to kilometers)
-document.getElementById('distance').value = (selectedLine.options.distance / 1000).toFixed(2) + ' km';
+document.getElementById('distance').value = selectedLine.options.distance
 }
 
 
