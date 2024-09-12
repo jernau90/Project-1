@@ -32,8 +32,8 @@
             contextMenu.style.top = `${e.originalEvent.pageY - 100}px`;
             document.getElementById('dot-form').style.display = 'none'
             document.getElementById('line-form').style.display = 'none'
-            //document.getElementById('line-name').value = ''; // Clear line name
-            //document.getElementById('line-type').value = ''; // Clear line type;
+            document.getElementById('line-name').value = ''; // Clear line name
+            document.getElementById('line-type').value = ''; // Clear line type;
             document.getElementById('dot-name').value = ''; // Clear dot name
             document.getElementById('dot-type').value = ''; // Clear dot type;
             document.getElementById('dot id').value = ''; // Clear dot ID;
@@ -77,8 +77,8 @@
             document.getElementById('dot-form').style.display = 'none';
 
             // Populate form with selected dot's name and type
-            document.getElementById('line-name').value = selectedline.options.dotName || '';
-            document.getElementById('line-type').value = selectedline.options.dotType || '';
+            document.getElementById('line-name').value = selectedline.options.lineName || '';
+            document.getElementById('line-type').value = selectedline.options.lineType || '';
             document.getElementById('start-id').value = selectedline.dots.start|| '';
             document.getElementById('end-id').value = selectedline.dots.end|| '';}
         
