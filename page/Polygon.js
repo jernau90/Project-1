@@ -49,7 +49,3 @@ function drawPolygon() {
     // Reset the points array after the polygon is drawn
     polygonPoints = [];
 }
-
-// Add the button click event handler
-document.getElementById('polygonButton').addEventListener('click', togglePolygonMode);
-
