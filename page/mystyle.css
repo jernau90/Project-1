@@ -96,3 +96,10 @@ body {
         background-color: blue;
         border-radius: 50%;
         }
+
+#polygonButton {
+position: absolute;
+padding: 10px;
+backgroundColor: '#4CAF50';
+color: white;
+}
