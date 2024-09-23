@@ -98,8 +98,8 @@ body {
         }
 
 #polygonButton {
-position: absolute;
-padding: 10px;
-backgroundColor: '#4CAF50';
-color: white;
-}
+        position: absolute;
+        padding: 10px;
+        backgroundColor: '#4CAF50';
+        color: white;
+        }
