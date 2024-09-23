@@ -49,19 +49,8 @@ function drawPolygon() {
     // Reset the points array after the polygon is drawn
     polygonPoints = [];
 }
-// Add the polygon button to the UI
-const polygonButton = document.createElement('button');
-polygonButton.id = 'polygon-button';
-polygonButton.innerText = 'Polygon';
-polygonButton.style.position = 'absolute';
-polygonButton.style.bottom = '20px';
-polygonButton.style.left = '20px';
-polygonButton.style.padding = '10px';
-polygonButton.style.backgroundColor = '#4CAF50';
-polygonButton.style.color = 'white';
-polygonButton.style.border = 'none';
-polygonButton.style.cursor = 'pointer';
+
 // Add the button click event handler
 polygonButton.addEventListener('click', togglePolygonMode);
-// Add the button to the map container or body
-document.body.appendChild(polygonButton);
+
+
