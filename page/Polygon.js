@@ -51,6 +51,5 @@ function drawPolygon() {
 }
 
 // Add the button click event handler
-polygonButton.addEventListener('click', togglePolygonMode);
-
+document.getElementById('polygonButton').addEventListener('click', togglePolygonMode);
 
