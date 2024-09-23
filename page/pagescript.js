@@ -44,6 +44,8 @@ document.getElementById('line-type').addEventListener('input', function() {
         }
 });
 
+document.getElementById('polygonButton').addEventListener('click', togglePolygonMode);
+
 // Attach map and context menu events
 map.on('contextmenu', onMapRightClick);  // Right-click event
 map.on('click', onMapClick);  // Regular left-click event
